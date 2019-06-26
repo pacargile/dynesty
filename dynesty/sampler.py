@@ -346,7 +346,7 @@ class Sampler(object):
                 self.update_proposal(blob)
 
             # If we satisfy the log-likelihood constraint, we're done!
-            if logl >= loglstar:
+            if (logl >= loglstar) & (logl != -np.inf):
                 break
 
             # If there has been more than `update_interval` function calls
